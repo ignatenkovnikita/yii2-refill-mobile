@@ -25,7 +25,21 @@ to the require section of your `composer.json` file.
 Usage
 -----
 
-Once the extension is installed, simply use it in your code by  :
+Add this to your main configuration's components array:
 
 ```php
-<?= \\ignatenkovnikita\refillmobile\AutoloadExample::widget(); ?>```
+'refillMobile' => [
+            'class' =>  \ignatenkovnikita\refillmobile\ClientRefill::className(),
+            'url' => your_url,
+            'user' => your_user,
+            'pass' => your_pass,
+            'actionId' => your_actionId
+
+        ],
+```
+Typical component usage
+-----------------------
+```php
+Yii::$app->refillMobile->state(your_id);
+Yii::$app->refillMobile->refill(7 your_phone, your summ);
+```
